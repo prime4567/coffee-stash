@@ -1,13 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PaperProvider, MD3LightTheme as DefaultTheme, } from 'react-native-paper';
 import LoginScreen from './screens/LoginScreen'
+
+const BrownTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "#754825",
+    secondary: "yellow",
+    background: "#CFC1B2",
+    surface: "white",
+  },
+};
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <LoginScreen />
-      <StatusBar style="auto" />
-    </SafeAreaProvider>
-  );
+      <PaperProvider theme={BrownTheme}>
+        <LoginScreen />
+        <StatusBar style="auto" />
+      </PaperProvider>
+    </SafeAreaProvider>  );
 }
