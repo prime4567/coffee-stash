@@ -1,20 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PaperProvider, MD3LightTheme as DefaultTheme, } from 'react-native-paper';
+import LoginScreen from './screens/LoginScreen'
+import MyStashScreen from './screens/MyStashScreen';
+
+const BrownTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "#754825",
+    secondary: "yellow",
+    background: "#CFC1B2",
+    surface: "white",
+  },
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <SafeAreaProvider>
+      <PaperProvider theme={BrownTheme}>
+        <MyStashScreen />
+        <StatusBar style="light" />
+      </PaperProvider>
+    </SafeAreaProvider>  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
