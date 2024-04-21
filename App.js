@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { PaperProvider, MD3LightTheme as DefaultTheme, } from 'react-native-paper';
 import LoginScreen from './screens/LoginScreen'
+import MyStashScreen from './screens/MyStashScreen';
 
 const BrownTheme = {
   ...DefaultTheme,
@@ -18,8 +19,8 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <PaperProvider theme={BrownTheme}>
-        <LoginScreen />
-        <StatusBar style="auto" />
+        <MyStashScreen />
+        <StatusBar style="light" />
       </PaperProvider>
     </SafeAreaProvider>  );
 }
