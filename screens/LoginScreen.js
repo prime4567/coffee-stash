@@ -16,10 +16,16 @@ const styles = StyleSheet.create({
     },
   });
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const insets = useSafeAreaInsets();
   const [username, onChangeUsername] = React.useState('');
   const [password, onChangePassword] = React.useState('');
+
+  const processSignIn = () => {
+    Alert.alert('Sign in Successfull')
+    navigation.navigate('MyStashScreen')
+  }
+
   return (
     <View style={[styles.container, {paddingTop: insets.top}]}>
       <Image
@@ -38,7 +44,7 @@ export default function LoginScreen() {
             label="Password"
         />
         <Button
-            onPress={() => Alert.alert('Sign in Successfull')}
+            onPress={processSignIn}
             mode="contained"
             accessibilityLabel="Learn more about this purple button"
 
